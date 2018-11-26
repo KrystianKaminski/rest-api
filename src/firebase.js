@@ -7,6 +7,6 @@ var config = {
     storageBucket: "krystian-kaminski.appspot.com",
     messagingSenderId: "185496303101"
   };
-  
+
 const firebaseApp = firebase.initializeApp(config);
 export const database = firebaseApp.database();

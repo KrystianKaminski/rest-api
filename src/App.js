@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { database } from './firebase'
 
 class App extends Component {
+
+
+  componentDidMount() {
+    database.ref('/products').push({
+      product: 'Awesome product'
+    })
+  }
+
   render() {
     return (
       <div className="App">
