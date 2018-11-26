@@ -7,9 +7,20 @@ class App extends Component {
 
 
   componentDidMount() {
-    database.ref('/products').push({
-      product: 'Awesome product'
-    })
+    database.ref('/products')
+    .on('value', (snapshot) => {
+      const firebaseData = Object.entries(
+        snapshot.val() || {}
+      );
+
+      const data = firebaseData.map(([id, value]) => {
+        // value.id = id;
+        return value;
+      });
+
+      // my data
+      console.log(data);
+    });
   }
 
   render() {
